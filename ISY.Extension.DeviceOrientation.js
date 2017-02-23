@@ -108,8 +108,8 @@ ISYExtensionDeviceOrientation.prototype.unload = function () {
     // add to camera
     target = target.addVectors(position,vec);
     _viewer.navigation.setView (position, target);
-    var xAxis = new THREE.Vector3(1,0,0);
-    zAxis.applyAxisAngle(xAxis,THREE.Math.degToRad(gamma));
+   // var xAxis = new THREE.Vector3(1,0,0);
+  //  zAxis.applyAxisAngle(xAxis,THREE.Math.degToRad(gamma));
     _viewer.navigation.setCameraUpVector (zAxis) ;
     //_viewer.applyCamera(cam,false);
 }

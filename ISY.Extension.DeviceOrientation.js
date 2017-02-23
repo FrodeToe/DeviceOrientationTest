@@ -20,11 +20,11 @@ ISYExtensionDeviceOrientation.prototype.load = function () {
       alert("DeviceOrientationEvent is not supported");
   }
 */
-var promise = FULLTILT.getDeviceOrientation({'type': 'game'});
+var promise = FULLTILT.getDeviceOrientation({'type': 'world'});
 		promise.then(function(orientationControl) {
 			orientationControl.listen(function() {
 				// Get latest screen-adjusted deviceorientation data
-				var screenAdjustedEvent = orientationControl.getScreenAdjustedEuler();
+				var screenAdjustedEvent = orientationControl.getFixedFrameEuler();
         orientationListener(screenAdjustedEvent);
 				/*ctx.clearRect(0,0,arrowWidth,arrowWidth);
 				// Convert true north heading to radians

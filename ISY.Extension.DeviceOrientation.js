@@ -12,16 +12,42 @@ ISYExtensionDeviceOrientation.prototype = Object.create(Autodesk.Viewing.Extensi
 ISYExtensionDeviceOrientation.prototype.load = function () {
   console.log('ISYExtensionDeviceOrientation loaded');
 
-  if(window.DeviceOrientationEvent){
+/*  if(window.DeviceOrientationEvent){
       _rotInterval = {lastx:0,lasty:90,lastz:0}; 
       window.addEventListener("deviceorientation", orientationListener, false); 
   }else
   {
       alert("DeviceOrientationEvent is not supported");
   }
+*/
+var promise = FULLTILT.getDeviceOrientation({'type': 'world'});
+		promise.then(function(orientationControl) {
+			orientationControl.listen(function() {
+				// Get latest screen-adjusted deviceorientation data
+				var screenAdjustedEvent = orientationControl.getScreenAdjustedEuler();
+        orientationListener(screenAdjustedEvent);
+				/*ctx.clearRect(0,0,arrowWidth,arrowWidth);
+				// Convert true north heading to radians
+				var heading = screenAdjustedEvent.alpha * Math.PI / 180;
+				var x1 = halfArrowWidth + Math.round(halfArrowWidth * Math.sin(heading));
+				var y1 = halfArrowWidth - Math.round(halfArrowWidth * Math.cos(heading));
+				var x2 = halfArrowWidth + Math.round(10.0 * Math.sin(heading - Math.PI/2));
+				var y2 = halfArrowWidth - Math.round(10.0 * Math.cos(heading - Math.PI/2));
+				var x3 = halfArrowWidth + Math.round(10.0 * Math.sin(heading + Math.PI/2));
+				var y3 = halfArrowWidth - Math.round(10.0 * Math.cos(heading + Math.PI/2));
+				ctx.beginPath();
+				ctx.moveTo(x1,y1);
+				ctx.lineTo(x2,y2);
+				ctx.lineTo(x3,y3);
+				ctx.closePath();
+				ctx.fill();*/
+			});
+  });
 
   return true;
 }
+
+
 
 ISYExtensionDeviceOrientation.prototype.unload = function () {
   console.log('ISYExtensionDeviceOrientation unloaded');

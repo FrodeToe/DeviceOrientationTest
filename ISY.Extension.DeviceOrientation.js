@@ -34,9 +34,9 @@ ISYExtensionDeviceOrientation.prototype.unload = function () {
  function orientationListener(event){
     //rotInterval = {lastx:0,lasty:0,lastz:0}; 
 
-    var alpha = parseInt(event.alpha);
-    var beta = parseInt(event.beta);
-    var gamma = parseInt(event.gamma);
+    var alpha = event.alpha;
+    var beta = event.beta;
+    var gamma = event.gamma;
 
     document.getElementById("alpha").innerHTML="Alpha="+alpha;
     document.getElementById("beta").innerHTML="Beta="+beta;
@@ -108,6 +108,8 @@ ISYExtensionDeviceOrientation.prototype.unload = function () {
     // add to camera
     target = target.addVectors(position,vec);
     _viewer.navigation.setView (position, target);
+    var xAxis = new THREE.Vector3(1,0,0);
+    zAxis.applyAxisAngle(xAxis,THREE.Math.degToRad(gamma));
     _viewer.navigation.setCameraUpVector (zAxis) ;
     //_viewer.applyCamera(cam,false);
 }

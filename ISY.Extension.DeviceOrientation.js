@@ -20,7 +20,7 @@ ISYExtensionDeviceOrientation.prototype.load = function () {
       alert("DeviceOrientationEvent is not supported");
   }
 */
-var promise = FULLTILT.getDeviceOrientation({'type': 'world'});
+var promise = FULLTILT.getDeviceOrientation({'type': 'game'});
 		promise.then(function(orientationControl) {
 			orientationControl.listen(function() {
 				// Get latest screen-adjusted deviceorientation data

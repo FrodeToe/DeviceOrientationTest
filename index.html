@@ -124,7 +124,7 @@
             oViewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function (event) {
                     oViewer.loadExtension('ISYExtensionDeviceOrientation',{});
                     var pos = new THREE.Vector3(-0.0963,-0.9955,-0.8031);
-                    var tar = new THREE.Vector3(-10.8063,-0.9955,-0.8031);
+                    var tar = new THREE.Vector3(-1.0063,-0.9955,-0.8031);
                     //oViewer.navigation.setPosition(pos);
                     oViewer.navigation.setView(pos, tar);
                     oViewer.navigation.orientCameraUp();

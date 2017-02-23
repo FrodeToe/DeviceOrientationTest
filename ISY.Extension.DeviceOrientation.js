@@ -44,7 +44,7 @@ ISYExtensionDeviceOrientation.prototype.unload = function () {
     // get camera
     var cam = _viewer.getCamera();
 
-    newx = event.alpha;
+ /*   newx = event.alpha;
     newy = event.beta;
     newz = event.gamma;  
 
@@ -78,11 +78,11 @@ ISYExtensionDeviceOrientation.prototype.unload = function () {
     _navapi.orientCameraUp(); 
 
     _rotInterval = {lastx:newx,lasty:newy,lastz:newz};  
-
+*/
  
  
     // get position and target
- /*   var position = cam.position.clone();
+    var position = cam.position.clone();
     var target = cam.target.clone();
 
     // get view vector
@@ -110,7 +110,6 @@ ISYExtensionDeviceOrientation.prototype.unload = function () {
     _viewer.navigation.setView (position, target);
     _viewer.navigation.setCameraUpVector (zAxis) ;
     //_viewer.applyCamera(cam,false);
-    */
 }
 
 

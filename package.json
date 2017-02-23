@@ -24,6 +24,7 @@
     "bufferutil": "2.0.1",
     "utf-8-validate": "3.0.1",
     "jquery": "3.1.x",
-    "serve-static": "1.11.x"
+    "serve-static": "1.11.x",
+    "serve-favicon": "2.3.x"
   }
 }
